@@ -1,31 +1,31 @@
 name: Display Name and Branches
- 
+
 on:
-  pull Request:
+  pull_request:
     branches:
-      -  Feature
-      -  main
- 
+      - Feature
+      - main
+
 jobs:
   display_info:
     runs-on: ubuntu-latest
     steps:
       - name: Display Your Name
         run: echo "Bhanu Prakash"
- 
+
       - name: Display Branches
         uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          run: |
+          script: |
             const branches = await github.repos.listBranches({
               owner: context.repo.owner,
               repo: context.repo.repo
             });
             console.log("Branches:");
             branches.data.forEach(branch => {
-console.log(branch.name);
+              console.log(branch.name);
             });
 
-       - name: Checkout repository
-         uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
