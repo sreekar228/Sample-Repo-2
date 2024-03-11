@@ -26,3 +26,6 @@ jobs:
             branches.data.forEach(branch => {
 console.log(branch.name);
             });
+
+       - name: Checkout repository
+         uses: actions/checkout@v2
