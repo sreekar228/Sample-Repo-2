@@ -2,6 +2,8 @@ name: Display Name and Branches
 
 on:
   pull_request:
+    types:
+      - closed
     branches:
       - Feature
       - main
